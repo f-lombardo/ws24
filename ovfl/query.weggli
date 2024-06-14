@@ -1,0 +1,1 @@
+weggli -u -R 'alloc=lloc' -R 'cpy=co?py' '{ $len = _($size+_); _ = $alloc($len); $cpy(_,_,$size); }' ovfl.c

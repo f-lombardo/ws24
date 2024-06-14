@@ -1,0 +1,14 @@
+rules:
+  - id: arbitrary-file-read
+    patterns:
+      - pattern: |
+          $PARAM := web.Params(...)[...]
+          ...
+          $PATH := filepath.Join($DIR, $FILE)
+          ...
+          ... := os.Open($PATH)
+    message: "Potential arbitrary file read vulnerability"
+    severity: ERROR
+    languages: [go]
+    metadata:
+      cwe: "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')"
